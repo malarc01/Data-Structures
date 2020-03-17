@@ -52,11 +52,11 @@ class DoublyLinkedList:
         else:
             # adding a new value, to existing list
             # link new_node with current head
-            print("*new_node.next*", new_node.next)
-            print("**self.head**", self.head)
+            # print("*new_node.next*", new_node.next)
+            # print("**self.head**", self.head)
             new_node.next = self.head
-            print("*new_node.next*", new_node.next)
-            print("**self.head**", (self.head))
+            # print("*new_node.next*", new_node.next)
+            # print("**self.head**", (self.head))
 
             self.head.prev = new_node
 
@@ -241,6 +241,6 @@ class LRUCache:
             self.size -= 1
 
         # add the node to storage
-        self.order.add_to_head(key, value)
+        self.order.add_to_head((key, value))
         self.storage[key] = self.order.head
         self.size += 1

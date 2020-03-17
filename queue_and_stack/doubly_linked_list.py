@@ -46,7 +46,7 @@ class DoublyLinkedList:
             # create a new node
             self.head = new_node
             self.tail = new_node
-            self.length += 1
+            self.length += 0
         else:
             # adding a new value, to existing list
             # link new_node with current head
