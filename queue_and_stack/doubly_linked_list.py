@@ -46,18 +46,12 @@ class DoublyLinkedList:
             # create a new node
             self.head = new_node
             self.tail = new_node
-
+            self.length += 1
         else:
             # adding a new value, to existing list
             # link new_node with current head
-            print("*new_node.next*", new_node.next)
-            print("**self.head**", self.head)
             new_node.next = self.head
-            print("*new_node.next*", new_node.next)
-            print("**self.head**", (self.head))
-
             self.head.prev = new_node
-
 
             # update head
             self.head = new_node
@@ -156,25 +150,20 @@ class DoublyLinkedList:
 
 
 our_dll = DoublyLinkedList()
-# print(our_dll.head)
-# print(our_dll.length)
-# print(len(DoublyLinkedList(69)))
+print(our_dll)
 
-# print(DoublyLinkedList(78).add_to_head(55))
-
-our_dll.add_to_head(55)
-our_dll.add_to_head(33)
-# our_dll.add_to_head(7)
-# our_dll.add_to_head(8)
-# our_dll.add_to_tail(1)
+our_dll.add_to_head(5)
+our_dll.add_to_head(3)
+our_dll.add_to_head(7)
+our_dll.add_to_head(8)
+our_dll.add_to_tail(1)
 
 print(our_dll)
 
+removed_val = our_dll.remove_from_head()
+print(removed_val)
 
-# removed_val = our_dll.remove_from_head()
-# print(removed_val)
-
-# print(our_dll)
-# removed_val = our_dll.remove_from_tail()
-# print(removed_val)
-# print(our_dll)
+print(our_dll)
+removed_val = our_dll.remove_from_tail()
+print(removed_val)
+print(our_dll)
