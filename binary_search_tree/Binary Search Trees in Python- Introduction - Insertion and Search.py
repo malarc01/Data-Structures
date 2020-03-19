@@ -1,0 +1,65 @@
+class Node:
+    def __init__(self, data=None):
+        self.data = data
+        self.left = None
+        self.right = None
+
+
+class Binary_Search_Tree:
+    def __init__(self):
+        self.root = None
+
+    def insert(self, data):
+        if self.root is None:
+            self.root = Node(data)
+        else:
+            self._insert(data, self.root)
+
+    def _insert(self, data, cur_node):
+        if data < cur_node.data:
+            if cur_node.left is None:
+                cur_node.left = Node(data)
+            else:
+                self._insert(data, cur_node.left)
+
+        elif data > cur_node.data:
+            if cur_node.right is None:
+                cur_node.right = Node(data)
+            else:
+                self._insert(data, cur_node.right)
+        else:
+            # do not allow duplicates
+            print('Value is already present in tree. ')
+
+    def find(self, data):
+        # check content is not None
+        if self.root:
+            is_found = self._find(data, self.root)
+            if is_found:
+                return True
+            return False
+        # if no content in tree
+        else:
+            return None
+
+    def _find(self, data, cur_node):
+        # if it has a right children => make recursive call
+        if data > cur_node.data and cur_node.right:
+            return self._find(data, cur_node.right)
+        # if it has a left child node => make recursive call
+        elif data < cur_node.data and cur_node.left:
+            return self._find(data, cur_node.left)
+        if data == cur_node.data:
+            return True
+
+
+binary_search_tree = Binary_Search_Tree()
+
+binary_search_tree.insert(4)
+binary_search_tree.insert(2)
+binary_search_tree.insert(8)
+binary_search_tree.insert(5)
+binary_search_tree.insert(10)
+
+
+print(binary_search_tree.find(11))
